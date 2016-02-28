@@ -1,16 +1,14 @@
-<?php
-
-namespace Artesaos\SEOTools\Contracts;
+<?php namespace Artesaos\SEOTools\Contracts;
 
 interface TwitterCards
 {
-    /**
+     /**
      * @param array $defaults
      */
     public function __construct(array $defaults);
 
     /**
-     * @return string
+     * @return string 
      */
     public function generate();
 
@@ -28,6 +26,13 @@ interface TwitterCards
      * @return TwitterCards
      */
     public function setType($type);
+
+    /**
+     * @param string $card
+     * 
+     * @return TwitterCards
+     */
+    public function setCard($card);
 
     /**
      * @param string $title

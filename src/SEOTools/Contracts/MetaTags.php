@@ -1,15 +1,14 @@
-<?php
-
-namespace Artesaos\SEOTools\Contracts;
+<?php namespace Artesaos\SEOTools\Contracts;
 
 interface MetaTags
 {
+
     /**
      * Configuration.
      *
      * @param array
      */
-    public function __construct(array $config = []);
+    public function __construct(array $config = array());
 
     /**
      * Generates meta tags.
@@ -22,23 +21,13 @@ interface MetaTags
      * Set the title.
      *
      * @param string $title
-     * @param bool   $appendDefault
      *
      * @return MetaTags
      */
-    public function setTitle($title, $appendDefault = true);
+    public function setTitle($title);
 
     /**
-     * Sets the default title tag.
-     *
-     * @param string $default
-     *
-     * @return MetaTags
-     */
-    public function setTitleDefault($default);
-
-    /**
-     * Set the title separator.
+     * Set the title seperator.
      *
      * @param string $separator
      *
@@ -87,56 +76,12 @@ interface MetaTags
      * Add a custom meta tag.
      *
      * @param string|array $meta
-     * @param string       $value
-     * @param string       $name
+     * @param string $value
+     * @param string $name
      *
      * @return MetaTags
      */
     public function addMeta($meta, $value = null, $name = 'name');
-
-    /**
-     * Sets the canonical URL.
-     *
-     * @param string $url
-     *
-     * @return MetaTagsContract
-     */
-    public function setCanonical($url);
-
-    /**
-     * Sets the prev URL.
-     *
-     * @param string $url
-     *
-     * @return MetaTagsContract
-     */
-    public function setPrev($url);
-
-    /**
-     * Sets the next URL.
-     *
-     * @param string $url
-     *
-     * @return MetaTagsContract
-     */
-    public function setNext($url);
-
-    /**
-     * Add an alternate language.
-     *
-     * @param string $lang language code in format ISO 639-1
-     * @param string $url
-     */
-    public function addAlternateLanguage($lang, $url);
-
-    /**
-     * Add alternate languages.
-     *
-     * @param array $languages
-     *
-     * @return MetaTagsContract
-     */
-    public function addAlternateLanguages(array $languages);
 
     /**
      * Get the title formatted for display.
@@ -153,14 +98,14 @@ interface MetaTags
     public function getTitleSession();
 
     /**
-     * Get the title separator that was set.
+     * Get the title seperator that was set.
      *
      * @return string
      */
-    public function getTitleSeparator();
+    public function getTitleSeperator();
 
     /**
-     * Get all metatags.
+     * Get all metatags
      *
      * @return array
      */
@@ -179,41 +124,6 @@ interface MetaTags
      * @return string
      */
     public function getDescription();
-
-    /**
-     * Get the canonical URL.
-     *
-     * @return string
-     */
-    public function getCanonical();
-
-    /**
-     * Get the prev URL.
-     *
-     * @return string
-     */
-    public function getPrev();
-
-    /**
-     * Get the next URL.
-     *
-     * @return string
-     */
-    public function getNext();
-
-    /**
-     * Get alternate languages.
-     *
-     * @return array
-     */
-    public function getAlternateLanguages();
-
-    /**
-     * Takes the default title.
-     *
-     * @return string
-     */
-    public function getDefaultTitle();
 
     /**
      * Reset all data.

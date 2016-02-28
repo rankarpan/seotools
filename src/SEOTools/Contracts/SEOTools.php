@@ -1,10 +1,11 @@
-<?php
+<?php namespace Artesaos\SEOTools\Contracts;
 
-namespace Artesaos\SEOTools\Contracts;
+use Illuminate\Contracts\Foundation\Application;
 
 /**
- * SEOTools.
+ * SEOTools
  *
+ * @package SEOTools
  * @author `Vinicius Reis`
  */
 interface SEOTools
@@ -19,58 +20,34 @@ interface SEOTools
      */
     public function opengraph();
 
-    /**
+     /**
      * @return \Artesaos\SEOTools\Contracts\TwitterCards
      */
     public function twitter();
 
-    /**
-     * Setup title for all seo providers.
-     *
-     * @param string $title
-     *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+     /**
+      * Setup title for all seo providers
+      * 
+      * @param string $title
      */
     public function setTitle($title);
 
     /**
-     * Setup description for all seo providers.
+     * Setup description for all seo providers
      *
-     * @param string $description
-     *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+     * @param string $title
      */
     public function setDescription($description);
 
     /**
-     * Sets the canonical URL.
-     *
-     * @param string $url
-     *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+      * Setup keywords for all seo providers
+      * 
+      * @param string $keywords
      */
-    public function setCanonical($url);
+    public function setKeywords($keywords);
 
     /**
-     * Add one or more images urls.
-     *
-     * @param array|string $urls
-     *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
-     */
-    public function addImages($urls);
-
-    /**
-     * Get current title from metatags.
-     *
-     * @param bool $session
-     *
-     * @return string
-     */
-    public function getTitle($session = false);
-
-    /**
-     * Generate from all seo providers.
+     * Generate from all seo providers
      *
      * @return string
      */

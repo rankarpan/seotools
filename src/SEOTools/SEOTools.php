@@ -1,8 +1,7 @@
-<?php
-
-namespace Artesaos\SEOTools;
+<?php namespace Artesaos\SEOTools;
 
 use Artesaos\SEOTools\Contracts\SEOTools as SEOContract;
+use Illuminate\Contracts\Foundation\Application;
 
 class SEOTools implements SEOContract
 {
@@ -31,11 +30,11 @@ class SEOTools implements SEOContract
     }
 
     /**
-     * Setup title for all seo providers.
+     * Setup title for all seo providers
      *
      * @param string $title
      *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+     * @return $this
      */
     public function setTitle($title)
     {
@@ -47,11 +46,11 @@ class SEOTools implements SEOContract
     }
 
     /**
-     * Setup description for all seo providers.
+     * Setup description for all seo providers
      *
      * @param $description
      *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+     * @return $this
      */
     public function setDescription($description)
     {
@@ -63,54 +62,21 @@ class SEOTools implements SEOContract
     }
 
     /**
-     * Sets the canonical URL.
+     * Setup keywords for all seo providers
      *
-     * @param string $url
+     * @param string $keywords
      *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
+     * @return $this
      */
-    public function setCanonical($url)
+    public function setKeywords($keywords)
     {
-        $this->metatags()->setCanonical($url);
+        $this->metatags()->setKeywords($keywords);
 
         return $this;
     }
 
     /**
-     * @param array|string $urls
-     *
-     * @return \Artesaos\SEOTools\Contracts\SEOTools
-     */
-    public function addImages($urls)
-    {
-        if (is_array($urls)):
-            $this->opengraph()->addImages($urls); else:
-            $this->opengraph()->addImage($urls);
-        endif;
-
-        $this->twitter()->addImage($urls);
-
-        return $this;
-    }
-
-    /**
-     * Get current title from metatags.
-     *
-     * @param bool $session
-     *
-     * @return string
-     */
-    public function getTitle($session = false)
-    {
-        if ($session) {
-            return $this->metatags()->getTitleSession();
-        }
-
-        return $this->metatags()->getTitle();
-    }
-
-    /**
-     * Generate from all seo providers.
+     * Generate from all seo providers
      *
      * @return string
      */
