@@ -100,7 +100,7 @@ class TwitterCards implements TwitterCardsContract
      */
     public function setTitle($title)
     {
-        $default = "INVINCIBLE | Surprise Yourself to Inspire Yourself";
+        $default = config('seotools.twitter.defaults.title');
         $title = $title. ' - ' .$default;
         return $this->addValue('title', $title);
     }

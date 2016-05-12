@@ -182,7 +182,7 @@ class OpenGraph implements OpenGraphContract
      */
     public function setTitle($title)
     {
-        $default = "INVINCIBLE | Surprise Yourself to Inspire Yourself";
+        $default = config('seotools.opengraph.defaults.title');
         $title = $title. ' - ' .$default;
         return $this->addProperty('title', $title);
     }
